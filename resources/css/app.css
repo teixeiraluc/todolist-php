@@ -1,6 +1,5 @@
 body {
     background: rgb(250, 227, 152);
-    color: #fff;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1rem;
@@ -8,11 +7,11 @@ body {
   
   .conteudo {
     margin: 0 auto;
-    width: 100%;
-    max-width: 650px;
+    width: 90%;
     margin-top: 50px;
     margin-bottom: 50px;
     background: #476163;
+    color: #fff;
     padding: 50px;
     border-radius: 12px;
   }
@@ -49,15 +48,15 @@ body {
   }
   
   #listaTarefas {
-    list-style-type: none;
+    width: 100%;
     padding: 0;
     margin: 0;
-  }
-  
-  #listaTarefas li {
-    padding: 20px;
     background: #191818;
     border-radius: 12px;
+  }
+
+  #listaTarefas tr, td, th  {
+    padding: 5px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;

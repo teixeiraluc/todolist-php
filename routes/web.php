@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TarefasController;
+use App\Models\Tarefas;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,12 +15,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('todolist');
+Route::get('/', function () { 
+    $tarefas = Tarefas::get();
+    return view ('todolist')->with(['tarefas' => $tarefas]);
 });
 
-Route::get('/addtask', function () {
-    return view('add_task');
-})->name('addtask');
+Route::get('todolist/{id}', [TarefasController::class, 'readOne']);
 
+Route::get('todolist', [TarefasController::class, 'index']);
+Route::post('todolist', [TarefasController::class, 'create'])->name('registrar-tarefa');
+
+Route::get('todolist/{id}',[TarefasController::class, 'edit']);
+Route::post('todolist/{id}',[TarefasController::class, 'update'])->name('atualizar-tarefa');
+
+Route::get('todolist/{id}', [TarefasController::class, 'delete']);
+Route::post('todolist/{id}', [TarefasController::class, 'destroy'])->name('excluir-tarefa');
 ?>
