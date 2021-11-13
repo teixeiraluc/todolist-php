@@ -63,7 +63,7 @@ class TarefasController extends Controller {
     /****************************/
     public function delete ($id){
         $task = Tarefas::findOrFail($id);
-        return view ('todolist.delete', ['task', $task]);
+        return view ('/', ['task', $task]);
     }
 
     public function destroy ($id){

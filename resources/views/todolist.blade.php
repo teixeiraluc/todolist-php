@@ -26,7 +26,7 @@
                     <th>Data de Conclusão</th>
                     <th>Concluída</th>
                     
-                    <th>---------</th>
+                    <th colspan="2">---------</th>
                 </tr>
                 @foreach($tarefas as $k => $data)
                 <tr>
@@ -34,10 +34,14 @@
                     <td>{{$data->task}}</td>
                     <td>{{$data->comment}}</td>
                     <td>{{$data->conclusion_date}}</td>
-                    
-                    <td><input type="checkbox" name="check" /></td>
-                    <td><button class="btnAcao"><a class="fa fa-pencil"></a></button>
-                    <button class="btnAcao"><a class="fa fa-trash" href="{{ route('excluir-tarefa', ['id', $data->id]) }}"></a></button></td>
+                    <td><input type="checkbox" name="check" @if ($data->check) checked @endif disabled/></td>
+
+                    <td>
+                        <button class="btnAcao"><a class="fa fa-pencil"></a></button>
+                        <form method="POST" action="{{ route('excluir-tarefa', ['id', $data->id]) }}">
+                            <input class="btnAcao fa fa-trash" type="submit"/>
+                        </form>
+                    </td>
                 </tr>
                 @endforeach
             </table>
