@@ -35,8 +35,6 @@ class TarefasController extends Controller {
         return view ('todolist.show', ['tasks' => $tasks]);
     }
 
-
-
     /*******************************/
     /* Atualizando dados da tabela */
     /*******************************/
